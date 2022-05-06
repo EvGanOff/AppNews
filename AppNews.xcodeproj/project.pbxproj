@@ -24,6 +24,13 @@
 		5EED8B1F282546BB0075794D /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B1E282546BB0075794D /* News.swift */; };
 		5EED8B21282547B10075794D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B20282547B10075794D /* Article.swift */; };
 		5EED8B2328254A470075794D /* NErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B2228254A470075794D /* NErrors.swift */; };
+		5EED8B2628255FBF0075794D /* NAlertConteinerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B2528255FBF0075794D /* NAlertConteinerView.swift */; };
+		5EED8B28282560E80075794D /* NAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B27282560E80075794D /* NAlertViewController.swift */; };
+		5EED8B2B2825614A0075794D /* UIViewController + CoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B2A2825614A0075794D /* UIViewController + CoreKit.swift */; };
+		5EED8B2E2825635B0075794D /* NButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B2D2825635B0075794D /* NButton.swift */; };
+		5EED8B3228256AF20075794D /* NImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B3128256AF20075794D /* NImageView.swift */; };
+		5EED8B3428256B720075794D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B3328256B720075794D /* Constants.swift */; };
+		5EED8B37282572790075794D /* NewsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B36282572790075794D /* NewsListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +72,13 @@
 		5EED8B1E282546BB0075794D /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		5EED8B20282547B10075794D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		5EED8B2228254A470075794D /* NErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NErrors.swift; sourceTree = "<group>"; };
+		5EED8B2528255FBF0075794D /* NAlertConteinerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAlertConteinerView.swift; sourceTree = "<group>"; };
+		5EED8B27282560E80075794D /* NAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAlertViewController.swift; sourceTree = "<group>"; };
+		5EED8B2A2825614A0075794D /* UIViewController + CoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + CoreKit.swift"; sourceTree = "<group>"; };
+		5EED8B2D2825635B0075794D /* NButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NButton.swift; sourceTree = "<group>"; };
+		5EED8B3128256AF20075794D /* NImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NImageView.swift; sourceTree = "<group>"; };
+		5EED8B3328256B720075794D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5EED8B36282572790075794D /* NewsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +174,7 @@
 		5EED8B0B2825293B0075794D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5EED8B2F282569A80075794D /* AlertController */,
 				5EED8B1828253E090075794D /* TabBarController */,
 				5EED8ADD2825283C0075794D /* NewsListViewContriller.swift */,
 				5EED8B1928253E680075794D /* NBookmarksViewController.swift */,
@@ -180,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				5EED8B2228254A470075794D /* NErrors.swift */,
+				5EED8B3328256B720075794D /* Constants.swift */,
 			);
 			path = Utinity;
 			sourceTree = "<group>";
@@ -187,6 +203,10 @@
 		5EED8B0E2825297C0075794D /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				5EED8B35282572520075794D /* Cell */,
+				5EED8B3028256AC70075794D /* ImageView */,
+				5EED8B2C2825632F0075794D /* Buttons */,
+				5EED8B2428255FA10075794D /* Views */,
 				5EED8B1528253C4C0075794D /* Labels */,
 			);
 			path = CustomViews;
@@ -195,6 +215,7 @@
 		5EED8B0F28252AD00075794D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5EED8B292825610A0075794D /* Extetions */,
 				5EED8B092825291E0075794D /* App */,
 				5EED8B0D282529610075794D /* Utinity */,
 				5EED8B1D2825449C0075794D /* Managers */,
@@ -237,6 +258,54 @@
 				5EED8B1B282544920075794D /* NetworkManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		5EED8B2428255FA10075794D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B2528255FBF0075794D /* NAlertConteinerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5EED8B292825610A0075794D /* Extetions */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B2A2825614A0075794D /* UIViewController + CoreKit.swift */,
+			);
+			path = Extetions;
+			sourceTree = "<group>";
+		};
+		5EED8B2C2825632F0075794D /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B2D2825635B0075794D /* NButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		5EED8B2F282569A80075794D /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B27282560E80075794D /* NAlertViewController.swift */,
+			);
+			path = AlertController;
+			sourceTree = "<group>";
+		};
+		5EED8B3028256AC70075794D /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B3128256AF20075794D /* NImageView.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		5EED8B35282572520075794D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B36282572790075794D /* NewsListCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,14 +440,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EED8ADE2825283C0075794D /* NewsListViewContriller.swift in Sources */,
+				5EED8B3428256B720075794D /* Constants.swift in Sources */,
 				5EED8ADA2825283C0075794D /* AppDelegate.swift in Sources */,
+				5EED8B2628255FBF0075794D /* NAlertConteinerView.swift in Sources */,
 				5EED8B1A28253E680075794D /* NBookmarksViewController.swift in Sources */,
+				5EED8B2B2825614A0075794D /* UIViewController + CoreKit.swift in Sources */,
+				5EED8B37282572790075794D /* NewsListCell.swift in Sources */,
 				5EED8B1F282546BB0075794D /* News.swift in Sources */,
 				5EED8B21282547B10075794D /* Article.swift in Sources */,
+				5EED8B3228256AF20075794D /* NImageView.swift in Sources */,
 				5EED8ADC2825283C0075794D /* SceneDelegate.swift in Sources */,
 				5EED8B1C282544920075794D /* NetworkManager.swift in Sources */,
 				5EED8B12282539B70075794D /* NBodyLabel.swift in Sources */,
+				5EED8B2E2825635B0075794D /* NButton.swift in Sources */,
 				5EED8B1728253CA80075794D /* NTabBarController.swift in Sources */,
+				5EED8B28282560E80075794D /* NAlertViewController.swift in Sources */,
 				5EED8B2328254A470075794D /* NErrors.swift in Sources */,
 				5EED8B1428253ADF0075794D /* NTitleLabel.swift in Sources */,
 			);

@@ -20,6 +20,10 @@
 		5EED8B1428253ADF0075794D /* NTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B1328253ADF0075794D /* NTitleLabel.swift */; };
 		5EED8B1728253CA80075794D /* NTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B1628253CA80075794D /* NTabBarController.swift */; };
 		5EED8B1A28253E680075794D /* NBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B1928253E680075794D /* NBookmarksViewController.swift */; };
+		5EED8B1C282544920075794D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B1B282544920075794D /* NetworkManager.swift */; };
+		5EED8B1F282546BB0075794D /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B1E282546BB0075794D /* News.swift */; };
+		5EED8B21282547B10075794D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B20282547B10075794D /* Article.swift */; };
+		5EED8B2328254A470075794D /* NErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8B2228254A470075794D /* NErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		5EED8B1328253ADF0075794D /* NTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTitleLabel.swift; sourceTree = "<group>"; };
 		5EED8B1628253CA80075794D /* NTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTabBarController.swift; sourceTree = "<group>"; };
 		5EED8B1928253E680075794D /* NBookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBookmarksViewController.swift; sourceTree = "<group>"; };
+		5EED8B1B282544920075794D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5EED8B1E282546BB0075794D /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		5EED8B20282547B10075794D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		5EED8B2228254A470075794D /* NErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +170,8 @@
 		5EED8B0C282529540075794D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5EED8B1E282546BB0075794D /* News.swift */,
+				5EED8B20282547B10075794D /* Article.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +179,7 @@
 		5EED8B0D282529610075794D /* Utinity */ = {
 			isa = PBXGroup;
 			children = (
+				5EED8B2228254A470075794D /* NErrors.swift */,
 			);
 			path = Utinity;
 			sourceTree = "<group>";
@@ -186,6 +197,7 @@
 			children = (
 				5EED8B092825291E0075794D /* App */,
 				5EED8B0D282529610075794D /* Utinity */,
+				5EED8B1D2825449C0075794D /* Managers */,
 				5EED8B0C282529540075794D /* Model */,
 				5EED8B0E2825297C0075794D /* CustomViews */,
 				5EED8B0B2825293B0075794D /* Controllers */,
@@ -217,6 +229,14 @@
 				5EED8B1628253CA80075794D /* NTabBarController.swift */,
 			);
 			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		5EED8B1D2825449C0075794D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B1B282544920075794D /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,9 +373,13 @@
 				5EED8ADE2825283C0075794D /* NewsListViewContriller.swift in Sources */,
 				5EED8ADA2825283C0075794D /* AppDelegate.swift in Sources */,
 				5EED8B1A28253E680075794D /* NBookmarksViewController.swift in Sources */,
+				5EED8B1F282546BB0075794D /* News.swift in Sources */,
+				5EED8B21282547B10075794D /* Article.swift in Sources */,
 				5EED8ADC2825283C0075794D /* SceneDelegate.swift in Sources */,
+				5EED8B1C282544920075794D /* NetworkManager.swift in Sources */,
 				5EED8B12282539B70075794D /* NBodyLabel.swift in Sources */,
 				5EED8B1728253CA80075794D /* NTabBarController.swift in Sources */,
+				5EED8B2328254A470075794D /* NErrors.swift in Sources */,
 				5EED8B1428253ADF0075794D /* NTitleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,7 +564,6 @@
 				INFOPLIST_FILE = AppNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -552,7 +575,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -568,7 +591,6 @@
 				INFOPLIST_FILE = AppNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -580,7 +602,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

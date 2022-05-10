@@ -8,6 +8,15 @@
 import UIKit
 
 enum Images {
-    static let placeholder = UIImage(named: "placeholder-images")
+    static let placeholderImage = UIImage(named: "placeholder-image")
+    static let placeholderUrlImage = "https://office-roxx.de/wp-content/uploads/2015/11/Bild_News_Fotolia_71635944_M_mediterranean_fotolia.de_.jpg"
+}
+
+enum Descriptions {
+    static let articleDescription = "Подробности на сайте"
+    static let articleAuthor = "Автор не указан"
+}
+
+enum URLImages {
     static let placeholderUrlImage = "https://i.postimg.cc/zDpnNFxG/placeholder-image-2x.png"
 }

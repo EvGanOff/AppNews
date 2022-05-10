@@ -7,11 +7,14 @@
 
 import UIKit
 
-class NewsListViewContriller: UIViewController {
+class NewsListViewContriller: NLoadingDataViewConroller {
 
     let tableView = UITableView()
     var articles: [Article] = []
-    var page = 0
+    var page = 1
+    var isPaging = false
+    var hasMoreArticles = true
+    var isRefresh = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +40,19 @@ class NewsListViewContriller: UIViewController {
     }
 
     private func getArticles(page: Int) {
+        showLoadingView()
+        isPaging = true
+
         NetworkManager.shared.getNews(page: page) { [weak self] result in
             guard let self = self else { return }
-
+            self.dismissLoadingView()
             switch result {
             case .success(let articles):
                 self.updateUI(with: articles)
             case .failure(let error):
                 self.presentsNAlertControllerOnMainTread(title: "Упс!", massage: error.rawValue, buttonTitle: "ОК")
             }
+            self.isPaging = false
         }
     }
 
@@ -57,14 +64,32 @@ class NewsListViewContriller: UIViewController {
             self.view.bringSubviewToFront(self.tableView)
         }
     }
-
-
-
 }
 
 extension NewsListViewContriller: UITableViewDelegate {
+    // написать метод постраничной загрузки
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
 
+        if offsetY > contentHeight - height {
+           guard hasMoreArticles, !isPaging else { return }
+            page += 1
+            isPaging = true
+            getArticles(page: page)
+        }
+    }
+    
+    // написать метод выбора ячейки и загрузки в сафари
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
 
+        let article = articles[indexPath.row]
+        let destVC = ArticleInfoVC(article: article)
+        let navigationController = UINavigationController(rootViewController: destVC)
+        present(navigationController, animated: true)
+    }
 }
 
 extension NewsListViewContriller: UITableViewDataSource {
@@ -73,7 +98,7 @@ extension NewsListViewContriller: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsListCell.identifier, for: indexPath) as? NewsListCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsListCell.identifier) as? NewsListCell else {
             let cell = NewsListCell(style: .default, reuseIdentifier: NewsListCell.identifier)
             return cell
         }

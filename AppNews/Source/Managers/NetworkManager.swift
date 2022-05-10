@@ -51,6 +51,42 @@ class NetworkManager {
         task.resume()
     }
 
+    func getArticleInfo(completed: @escaping (Result<[Article], NErrors>) -> Void) {
+        let endpoint = baseURL + "&pageSize=100" + "&apiKey=\(apiKey)"
+
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.unableToComplete))
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.invalidResponce))
+                return
+            }
+
+            guard let data = data else {
+                completed(.failure(.invalidData))
+                return
+            }
+
+            do {
+                let result = try self.decoder.decode(News.self, from: data)
+                completed(.success(result.articles))
+            } catch {
+                completed(.failure(.invalidData))
+            }
+        }
+
+        task.resume()
+    }
+
     func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
         let cacheKey = NSString(string: urlString)
 

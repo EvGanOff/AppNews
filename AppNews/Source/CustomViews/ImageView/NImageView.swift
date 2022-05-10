@@ -8,7 +8,7 @@
 import UIKit
 
 class NImageView: UIImageView {
-    let placeholderImage = Images.placeholder
+    let placeholderImage = Images.placeholderImage
     let cache = NetworkManager.shared.cache
 
     override init(frame: CGRect) {
@@ -28,7 +28,6 @@ class NImageView: UIImageView {
         image = placeholderImage
     }
 
-    //
     func downloadImages(fromURL url: String) {
         NetworkManager.shared.downloadImage(from: url) { [weak self] images in
             guard let self = self else { return }

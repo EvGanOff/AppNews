@@ -34,21 +34,25 @@ class NewsListCell: UITableViewCell {
     }
 
     private func configure() {
-        accessoryType = .disclosureIndicator
-        let padding: CGFloat = 12
         newsImageView.translatesAutoresizingMaskIntoConstraints = false
         newsTitleLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             newsImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            newsImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            newsImageView.heightAnchor.constraint(equalToConstant: 100),
-            newsImageView.widthAnchor.constraint(equalToConstant: 140),
+            newsImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Matrics.padding),
+            newsImageView.heightAnchor.constraint(equalToConstant: Matrics.heightAnchor),
+            newsImageView.widthAnchor.constraint(equalToConstant: Matrics.newsImageViewWidthAnchor),
 
             newsTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            newsTitleLabel.leadingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: 24),
-            newsTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            newsTitleLabel.heightAnchor.constraint(equalToConstant: 100)
+            newsTitleLabel.leadingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: Matrics.padding),
+            newsTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Matrics.padding),
+            newsTitleLabel.heightAnchor.constraint(equalToConstant: Matrics.heightAnchor)
         ])
+    }
+
+    private struct Matrics {
+        static let padding: CGFloat = 12
+        static let heightAnchor: CGFloat = 100
+        static let newsImageViewWidthAnchor: CGFloat = 170
     }
 }

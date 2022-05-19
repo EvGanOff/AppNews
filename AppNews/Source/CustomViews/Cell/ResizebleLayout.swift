@@ -8,13 +8,13 @@
 import UIKit
 
 struct UIHelper {
-    static let standartHeight: CGFloat = 100
-    static let featuredHeight: CGFloat = 280
+    static let standardHeight: CGFloat = 100
+    static let featuredHeight: CGFloat = 250
 }
 
 class ResizebleLayout: UICollectionViewLayout {
 
-    let dragOffset: CGFloat = UIHelper.featuredHeight - UIHelper.standartHeight
+    let dragOffset: CGFloat = UIHelper.featuredHeight - UIHelper.standardHeight
 
     var cacheAttributes = [UICollectionViewLayoutAttributes]()
 
@@ -23,11 +23,11 @@ class ResizebleLayout: UICollectionViewLayout {
     }
 
     // коэфициент наплыва ячейки
-    var procentageOffset: CGFloat {
+    var percentageOffset: CGFloat {
         collectionView!.contentOffset.y / dragOffset - CGFloat(featuredItemIndex)
     }
 
-    var widht: CGFloat {
+    var width: CGFloat {
         collectionView!.bounds.width
     }
 
@@ -47,7 +47,7 @@ extension ResizebleLayout {
 
     override var collectionViewContentSize: CGSize {
         CGSize (
-            width: widht,
+            width: width,
             height: CGFloat(numberOfItems) * dragOffset + height - dragOffset
         )
     }
@@ -62,41 +62,44 @@ extension ResizebleLayout {
             let path = IndexPath(item: index, section: 0)
             let atribures = UICollectionViewLayoutAttributes(forCellWith: path)
 
-            var height = UIHelper.standartHeight
+            var height = UIHelper.standardHeight
 
             if path.item == featuredItemIndex {
-                y = collectionView!.contentOffset.y - UIHelper.standartHeight * procentageOffset
+                y = collectionView!.contentOffset.y - UIHelper.standardHeight * percentageOffset
                 height = UIHelper.featuredHeight
             } else if path.item == (featuredItemIndex + 1) {
-                height = UIHelper.standartHeight + max(0, dragOffset * procentageOffset)
-                let maxY = y + UIHelper.standartHeight
+                let maxY = y + UIHelper.standardHeight
+
+                height = UIHelper.standardHeight + max(dragOffset * percentageOffset, 0)
                 y = maxY - height
             }
 
-            frame = CGRect(x: 0, y: y, width: widht, height: height)
+            frame = CGRect(x: 0, y: y, width: width, height: height)
+//
             atribures.frame = frame
+//
             atribures.zIndex = index
+//
             cacheAttributes.append(atribures)
-
             y = frame.maxY
         }
     }
 
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        var result = [UICollectionViewLayoutAttributes]()
+        var resultAttributes = [UICollectionViewLayoutAttributes]()
 
         for attributes in cacheAttributes {
             if attributes.frame.intersects(rect) {
-                result.append(attributes)
+                resultAttributes.append(attributes)
             }
         }
 
-        return result
+        return resultAttributes
     }
 
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
-        let index = round(proposedContentOffset.y / dragOffset)
-        let y = index * dragOffset
-        return CGPoint(x: 0, y: y)
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        let itemIndex = round(proposedContentOffset.y / dragOffset)
+        let yOffset = itemIndex * dragOffset
+        return CGPoint(x: 0, y: yOffset)
     }
 }

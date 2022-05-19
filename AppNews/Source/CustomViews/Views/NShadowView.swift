@@ -1,17 +1,13 @@
 //
-//  NImageView.swift
+//  NShadowView.swift
 //  AppNews
 //
-//  Created by Евгений Ганусенко on 5/6/22.
+//  Created by Евгений Ганусенко on 5/11/22.
 //
 
 import UIKit
 
-class NImageView: UIImageView {
-    let placeholderImage = Images.placeholderImage
-    let cache = NetworkManager.shared.cache
-    var networkDelegate: NetworkManagerProtocol? = NetworkManager()
-
+class NShadowView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -21,10 +17,11 @@ class NImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // Преднастойка картинки
     private func configure() {
+        backgroundColor = .black
         layer.cornerRadius = 5
-        clipsToBounds = true
+        layer.borderWidth = 2
+        layer.backgroundColor = UIColor.black.cgColor
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

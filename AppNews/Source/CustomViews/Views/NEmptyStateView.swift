@@ -46,7 +46,7 @@ class NEmptyStateView: UIView {
     }
 
     private func configureLogoImageView() {
-        logoImageView.image = UIImage(systemName: "books.vertical", withConfiguration: UIImage.SymbolConfiguration(hierarchicalColor: .systemGray4))
+        logoImageView.image = UIImage(systemName: "bookmark", withConfiguration: UIImage.SymbolConfiguration(hierarchicalColor: .systemGray5))
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([

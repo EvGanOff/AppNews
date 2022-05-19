@@ -15,6 +15,7 @@ class NewsListViewContriller: NLoadingDataViewConroller {
     var isPaging = false
     var hasMoreArticles = true
     var isRefresh = false
+    let networkDelegate: NetworkManagerProtocol? = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class NewsListViewContriller: NLoadingDataViewConroller {
         showLoadingView()
         isPaging = true
 
-        NetworkManager.shared.getNews(page: page) { [weak self] result in
+        networkDelegate?.getNews(page: page) { [weak self] result in
             guard let self = self else { return }
             self.dismissLoadingView()
             switch result {

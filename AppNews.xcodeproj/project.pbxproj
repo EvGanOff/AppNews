@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EB7AB01282D3DFE00D01476 /* SwipeableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7AB00282D3DFE00D01476 /* SwipeableCollectionViewCell.swift */; };
 		5ED7BF0E28287628002AF61E /* ResizebleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF0D28287628002AF61E /* ResizebleLayout.swift */; };
 		5ED7BF1028287C01002AF61E /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF0F28287C01002AF61E /* UIHelper.swift */; };
 		5ED7BF14282A8615002AF61E /* NEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF13282A8615002AF61E /* NEmptyStateView.swift */; };
+		5ED7BF1C282AF5A0002AF61E /* NewsBookmarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF1B282AF5A0002AF61E /* NewsBookmarksCell.swift */; };
+		5ED7BF22282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF21282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift */; };
+		5ED7BF24282B0C29002AF61E /* NShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF23282B0C29002AF61E /* NShadowView.swift */; };
 		5EED8ADA2825283C0075794D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8AD92825283C0075794D /* AppDelegate.swift */; };
 		5EED8ADC2825283C0075794D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8ADB2825283C0075794D /* SceneDelegate.swift */; };
 		5EED8ADE2825283C0075794D /* NewsListViewContriller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8ADD2825283C0075794D /* NewsListViewContriller.swift */; };
@@ -60,9 +64,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5EB7AB00282D3DFE00D01476 /* SwipeableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCollectionViewCell.swift; sourceTree = "<group>"; };
 		5ED7BF0D28287628002AF61E /* ResizebleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizebleLayout.swift; sourceTree = "<group>"; };
 		5ED7BF0F28287C01002AF61E /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		5ED7BF13282A8615002AF61E /* NEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NEmptyStateView.swift; sourceTree = "<group>"; };
+		5ED7BF1B282AF5A0002AF61E /* NewsBookmarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBookmarksCell.swift; sourceTree = "<group>"; };
+		5ED7BF21282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBookmarcsCollectionVC.swift; sourceTree = "<group>"; };
+		5ED7BF23282B0C29002AF61E /* NShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NShadowView.swift; sourceTree = "<group>"; };
 		5EED8AD62825283C0075794D /* AppNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EED8AD92825283C0075794D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EED8ADB2825283C0075794D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -285,6 +293,7 @@
 			children = (
 				5EED8B2528255FBF0075794D /* NAlertConteinerView.swift */,
 				5ED7BF13282A8615002AF61E /* NEmptyStateView.swift */,
+				5ED7BF23282B0C29002AF61E /* NShadowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +338,8 @@
 				5EED8B36282572790075794D /* NewsListCell.swift */,
 				5EED8B442828681D0075794D /* BookmarksCell.swift */,
 				5ED7BF0D28287628002AF61E /* ResizebleLayout.swift */,
+				5ED7BF1B282AF5A0002AF61E /* NewsBookmarksCell.swift */,
+				5EB7AB00282D3DFE00D01476 /* SwipeableCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -339,6 +350,7 @@
 				5EED8ADD2825283C0075794D /* NewsListViewContriller.swift */,
 				5EED8B3E2827FAB30075794D /* ArticleInfoVC.swift */,
 				5EED8B1928253E680075794D /* NBookmarksViewController.swift */,
+				5ED7BF21282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -477,11 +489,13 @@
 				5ED7BF14282A8615002AF61E /* NEmptyStateView.swift in Sources */,
 				5EED8ADE2825283C0075794D /* NewsListViewContriller.swift in Sources */,
 				5EED8B3428256B720075794D /* Constants.swift in Sources */,
+				5ED7BF22282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift in Sources */,
 				5EED8ADA2825283C0075794D /* AppDelegate.swift in Sources */,
 				5EED8B2628255FBF0075794D /* NAlertConteinerView.swift in Sources */,
 				5ED7BF0E28287628002AF61E /* ResizebleLayout.swift in Sources */,
 				5EED8B3F2827FAB30075794D /* ArticleInfoVC.swift in Sources */,
 				5EED8B1A28253E680075794D /* NBookmarksViewController.swift in Sources */,
+				5ED7BF1C282AF5A0002AF61E /* NewsBookmarksCell.swift in Sources */,
 				5EED8B2B2825614A0075794D /* UIViewController + CoreKit.swift in Sources */,
 				5EED8B452828681D0075794D /* BookmarksCell.swift in Sources */,
 				5EED8B37282572790075794D /* NewsListCell.swift in Sources */,
@@ -497,8 +511,10 @@
 				5EED8B3D282689F10075794D /* NLoadingDataViewConroller.swift in Sources */,
 				5EED8B2E2825635B0075794D /* NButton.swift in Sources */,
 				5EED8B1728253CA80075794D /* NTabBarController.swift in Sources */,
+				5ED7BF24282B0C29002AF61E /* NShadowView.swift in Sources */,
 				5EED8B28282560E80075794D /* NAlertViewController.swift in Sources */,
 				5EED8B3A282688880075794D /* PersistenceManager.swift in Sources */,
+				5EB7AB01282D3DFE00D01476 /* SwipeableCollectionViewCell.swift in Sources */,
 				5EED8B2328254A470075794D /* NErrors.swift in Sources */,
 				5EED8B1428253ADF0075794D /* NTitleLabel.swift in Sources */,
 			);

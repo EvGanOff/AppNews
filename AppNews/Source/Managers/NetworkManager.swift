@@ -7,14 +7,18 @@
 
 import UIKit
 
-class NetworkManager {
+protocol NetworkManagerProtocol: AnyObject {
+    func getNews(page: Int, completion: @escaping (Result<[Article], NErrors>) -> Void)
+    func getArticleInfo(completed: @escaping (Result<[Article], NErrors>) -> Void)
+    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void)
+}
+
+class NetworkManager: NetworkManagerProtocol {
     static let shared = NetworkManager()
-    private let baseURL = "https://newsapi.org/v2/top-headlines?country=ru"
+    var cache = NSCache<NSString, UIImage>()
+    private let baseURL = "https://newsapi.org/v2/top-headlines?country=us"
     private let apiKey = "b21393dbff084185b011f3acdc9bd5fb"
-    let cache = NSCache<NSString, UIImage>()
     let decoder = JSONDecoder()
-    
-    private init() {}
 
     func getNews(page: Int, completion: @escaping (Result<[Article], NErrors>) -> Void) {
         let endpoint = baseURL + "&page=\(page)" + "&apiKey=\(apiKey)"

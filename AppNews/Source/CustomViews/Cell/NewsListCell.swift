@@ -13,6 +13,8 @@ class NewsListCell: UITableViewCell {
     let newsImageView = NImageView(frame: .zero)
     let newsTitleLabel = NTitleLabel(textAligment: .left, fontSize: 16)
 
+    let networkDelegat: NetworkManagerProtocol? = NetworkManager()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupHierarchy()
@@ -29,8 +31,14 @@ class NewsListCell: UITableViewCell {
     }
 
     func setupCell(article: Article) {
-        newsImageView.downloadImages(fromURL: article.urlToImage ?? Images.placeholderUrlImage)
+        //newsImageView.downloadImages(fromURL: article.urlToImage ?? Images.placeholderUrlImage)
         newsTitleLabel.text = article.title
+        networkDelegat?.downloadImage(from: article.urlToImage ?? Images.placeholderUrlImage, completion: {[weak self] images in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.newsImageView.image = images
+            }
+        })
     }
 
     private func configure() {

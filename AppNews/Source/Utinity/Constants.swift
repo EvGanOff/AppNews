@@ -16,7 +16,3 @@ enum Descriptions {
     static let articleDescription = "Подробности на сайте"
     static let articleAuthor = "Автор не указан"
 }
-
-enum URLImages {
-    static let placeholderUrlImage = "https://i.postimg.cc/zDpnNFxG/placeholder-image-2x.png"
-}

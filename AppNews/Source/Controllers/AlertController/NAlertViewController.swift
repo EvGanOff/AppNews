@@ -13,8 +13,6 @@ class NAlertViewController: UIViewController {
     let massageLabel = NBodyLabel(textAligment: .center)
     let actionButton = NButton(backgraundColor: .systemPink, title: "OK")
 
-
-
     var alertTitle: String?
     var massege: String?
     var buttonTitle: String?
@@ -39,7 +37,6 @@ class NAlertViewController: UIViewController {
         configureTitleLabel()
         configureActionButton()
         configureMassageLabel()
-
     }
 
     private func setupHierarchy() {
@@ -98,7 +95,6 @@ class NAlertViewController: UIViewController {
             massageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -12)
         ])
     }
-
 
     @objc func dismissVC() {
         dismiss(animated: true)

@@ -10,8 +10,6 @@ import Foundation
 extension Date {
 
     func convertToDayMonthYearFormat() -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "d MMM yyyy"
         return formatted(.dateTime.day().month(.defaultDigits).year().hour().minute())
     }
 }

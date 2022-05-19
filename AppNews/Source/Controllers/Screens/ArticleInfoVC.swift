@@ -21,8 +21,7 @@ class ArticleInfoVC: NLoadingDataViewConroller {
     let dateLabel = NBodyLabel(textAligment: .left)
     let actionButton = NButton(backgraundColor: .systemPink, title: "Источник")
     var article: Article?
-
-
+    let networkDelegate: NetworkManagerProtocol? = NetworkManager()
 
     init(article: Article) {
         super.init(nibName: nil, bundle: nil)
@@ -33,7 +32,7 @@ class ArticleInfoVC: NLoadingDataViewConroller {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Lifecycle.
+    // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +43,7 @@ class ArticleInfoVC: NLoadingDataViewConroller {
         configureStackView()
     }
 
-    // MARK: - Private methods.
+    // MARK: - Private methods -
     private func configureViewController() {
         view.backgroundColor = .systemBackground
 
@@ -61,7 +60,7 @@ class ArticleInfoVC: NLoadingDataViewConroller {
     @objc private func addButtonTapped() {
         showLoadingView()
 
-        NetworkManager.shared.getArticleInfo { [weak self] result in
+        networkDelegate?.getArticleInfo { [weak self] result in
             guard let self = self else { return }
             self.dismissLoadingView()
 
@@ -87,14 +86,19 @@ class ArticleInfoVC: NLoadingDataViewConroller {
                 self.presentsNAlertControllerOnMainTread(title: "Добавлено", massage: "Вы добавили эту новость в закладки.", buttonTitle: "Ок")
                 return
             }
-            self.presentsNAlertControllerOnMainTread(title: "Что-то пошло не так", massage: error.rawValue, buttonTitle: "Ок")
+            self.presentsNAlertControllerOnMainTread(title: "Упс!", massage: error.rawValue, buttonTitle: "Ок")
         }
     }
 
     private func configureUI() {
         guard let article = article else { return }
+        networkDelegate?.downloadImage(from: article.urlToImage ?? Images.placeholderUrlImage, completion: { [weak self] images in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.imageView.image = images
+            }
+        })
 
-        imageView.downloadImages(fromURL: article.urlToImage ?? Images.placeholderUrlImage)
         titleLabel.text = article.title
         descriptionLabel.text = article.description ?? Descriptions.articleDescription
         authorLabel.text = article.author ?? Descriptions.articleAuthor

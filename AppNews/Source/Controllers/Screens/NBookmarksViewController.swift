@@ -6,17 +6,15 @@
 //
 
 import UIKit
-//import SwiftUI
 
 class NBookmarksViewController: NLoadingDataViewConroller {
 
-    // MARK: - Properties.
+    // MARK: - Properties -
 
     let tableView = UITableView()
     var bookmarks: [Article] = []
 
-    // MARK: - Lifecycle.
-
+    // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +27,7 @@ class NBookmarksViewController: NLoadingDataViewConroller {
         getBookmarks()
     }
 
-    // MARK: - Private methods.
+    // MARK: - Private methods -
 
     private func configureViewController() {
         view.backgroundColor = .systemBackground
@@ -54,16 +52,15 @@ class NBookmarksViewController: NLoadingDataViewConroller {
             switch result {
             case .success(let bookmarks):
                 self.updateUI(with: bookmarks)
-
             case .failure(let error):
-                self.presentsNAlertControllerOnMainTread(title: "Что-то пошло не так", massage: error.rawValue, buttonTitle: "Ок")
+                self.presentsNAlertControllerOnMainTread(title: "Упс", massage: error.rawValue, buttonTitle: "Ок")
             }
         }
     }
 
     private func updateUI(with bookmarks: [Article]) {
         if bookmarks.isEmpty {
-            self.showEmptyStateView(with: "Здесь отображаются ваши закладки.", in: self.view)
+            self.showEmptyStateView(with: "", in: self.view)
         } else {
             self.bookmarks = bookmarks
             DispatchQueue.main.async {
@@ -74,7 +71,8 @@ class NBookmarksViewController: NLoadingDataViewConroller {
     }
 }
 
-// MARK: - UITableViewDataSource.
+// MARK: - UITableViewDataSource -
+
 extension NBookmarksViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +90,7 @@ extension NBookmarksViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - UITableViewDelegate.
+// MARK: - UITableViewDelegate -
 
 extension NBookmarksViewController: UITableViewDelegate {
 
@@ -117,7 +115,7 @@ extension NBookmarksViewController: UITableViewDelegate {
         }
 
         if bookmarks.isEmpty {
-            showEmptyStateView(with: "Здесь отображаются ваши закладки.", in: self.view)
+            showEmptyStateView(with: "", in: self.view)
         }
     }
 }

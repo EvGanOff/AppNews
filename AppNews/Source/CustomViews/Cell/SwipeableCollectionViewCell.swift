@@ -39,7 +39,7 @@ class SwipeableCollectionViewCell: UICollectionViewCell {
     // второй контейнер
     let hiddenContainerView = UIView()
 
-    weak var delegate: SwipeableCollectionViewCellDelegate?
+    var swipeableDelegate: SwipeableCollectionViewCellDelegate?
 
     // MARK: Initializers
 
@@ -94,17 +94,16 @@ class SwipeableCollectionViewCell: UICollectionViewCell {
     }
 
     @objc private func visibleContainerViewTapped() {
-        delegate?.visibleContainerViewTapped(inCell: self)
+        swipeableDelegate?.visibleContainerViewTapped(inCell: self)
     }
 
     @objc private func hiddenContainerViewTapped() {
-        delegate?.hiddenContainerViewTapped(inCell: self)
+        swipeableDelegate?.hiddenContainerViewTapped(inCell: self)
 
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        // when the orientation changes and the cell is open -> update the content offset for the new cell width
         if scrollView.contentOffset.x > 0 {
             scrollView.contentOffset.x = scrollView.frame.width
         }

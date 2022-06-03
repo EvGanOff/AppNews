@@ -1,5 +1,5 @@
 //
-//  NewsBookmarcsCollectionVC.swift
+//  NewsBookmarksCollectionVC.swift
 //  AppNews
 //
 //  Created by Евгений Ганусенко on 5/10/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsBookmarcsCollectionVC: NLoadingDataViewConroller {
+class NewsBookmarksCollectionVC: NLoadingDataViewConroller {
 
     enum Section {
         case main
@@ -40,16 +40,12 @@ class NewsBookmarcsCollectionVC: NLoadingDataViewConroller {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        configereCollectionView()
-
-//        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) [0]
-//        print(documentDirectory)
+        configureCollectionView()
     }
 
-    private func configereCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: ResizebleLayout())
         collectionView.register(NewsBookmarksCell.self, forCellWithReuseIdentifier: NewsBookmarksCell.reuseIdentifier)
-        //collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.decelerationRate = .fast
         let backgroundView = NEmptyStateView(frame: .zero)
@@ -65,7 +61,7 @@ class NewsBookmarcsCollectionVC: NLoadingDataViewConroller {
             case .success(let bookmarks):
                 self.updateUI(with: bookmarks)
             case .failure(let error):
-                self.presentsNAlertControllerOnMainTread(title: "Упс", massage: error.rawValue, buttonTitle: "Ок")
+                self.presentsNAlertController(title: "Упс", massage: error.rawValue, buttonTitle: "Ок")
             }
         }
     }
@@ -83,12 +79,12 @@ class NewsBookmarcsCollectionVC: NLoadingDataViewConroller {
     }
 }
 
-extension NewsBookmarcsCollectionVC: UICollectionViewDelegate {
+extension NewsBookmarksCollectionVC: UICollectionViewDelegate {
 
 
 }
 
-extension NewsBookmarcsCollectionVC: UICollectionViewDataSource {
+extension NewsBookmarksCollectionVC: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bookmarks.count
@@ -108,15 +104,16 @@ extension NewsBookmarcsCollectionVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsBookmarksCell.reuseIdentifier, for: indexPath) as? NewsBookmarksCell else {
             return UICollectionViewCell()
         }
+        
         let bookmark = bookmarks[indexPath.row]
-        cell.delegate = self
+        cell.swipeableDelegate = self
         cell.set(bookmark: bookmark)
 
         return cell
     }
 }
 
-extension NewsBookmarcsCollectionVC: SwipeableCollectionViewCellDelegate {
+extension NewsBookmarksCollectionVC: SwipeableCollectionViewCellDelegate {
 
     func hiddenContainerViewTapped(inCell cell: UICollectionViewCell) {
         guard let indexPath = collectionView.indexPath(for: cell) else { return }
@@ -127,7 +124,7 @@ extension NewsBookmarcsCollectionVC: SwipeableCollectionViewCellDelegate {
 
                 return
             }
-            self.presentsNAlertControllerOnMainTread(title: "Не можем удалить закладку", massage: error.rawValue, buttonTitle: "Ок")
+            self.presentsNAlertController(title: "Не можем удалить закладку", massage: error.rawValue, buttonTitle: "Ок")
         }
         
         collectionView.performBatchUpdates({

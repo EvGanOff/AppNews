@@ -10,7 +10,7 @@ import UIKit
 class NewsListCell: UITableViewCell {
     static let identifier = "NewsListCell"
 
-    let newsImageView = NImageView(frame: .zero)
+    var newsImageView = NImageView(frame: .zero)
     let newsTitleLabel = NTitleLabel(textAligment: .left, fontSize: 16)
 
     let networkDelegat: NetworkManagerProtocol? = NetworkManager()
@@ -31,14 +31,10 @@ class NewsListCell: UITableViewCell {
     }
 
     func setupCell(article: Article) {
-        //newsImageView.downloadImages(fromURL: article.urlToImage ?? Images.placeholderUrlImage)
         newsTitleLabel.text = article.title
-        networkDelegat?.downloadImage(from: article.urlToImage ?? Images.placeholderUrlImage, completion: {[weak self] images in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.newsImageView.image = images
-            }
-        })
+        Task {
+            newsImageView.image = try await networkDelegat?.downloadImage(from: article.urlToImage ?? Images.placeholderUrlImage)
+        }
     }
 
     private func configure() {
@@ -64,3 +60,4 @@ class NewsListCell: UITableViewCell {
         static let newsImageViewWidthAnchor: CGFloat = 170
     }
 }
+

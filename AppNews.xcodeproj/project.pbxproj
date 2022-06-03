@@ -12,11 +12,11 @@
 		5ED7BF1028287C01002AF61E /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF0F28287C01002AF61E /* UIHelper.swift */; };
 		5ED7BF14282A8615002AF61E /* NEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF13282A8615002AF61E /* NEmptyStateView.swift */; };
 		5ED7BF1C282AF5A0002AF61E /* NewsBookmarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF1B282AF5A0002AF61E /* NewsBookmarksCell.swift */; };
-		5ED7BF22282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF21282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift */; };
+		5ED7BF22282AF73A002AF61E /* NewsBookmarksCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF21282AF73A002AF61E /* NewsBookmarksCollectionVC.swift */; };
 		5ED7BF24282B0C29002AF61E /* NShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF23282B0C29002AF61E /* NShadowView.swift */; };
 		5EED8ADA2825283C0075794D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8AD92825283C0075794D /* AppDelegate.swift */; };
 		5EED8ADC2825283C0075794D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8ADB2825283C0075794D /* SceneDelegate.swift */; };
-		5EED8ADE2825283C0075794D /* NewsListViewContriller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8ADD2825283C0075794D /* NewsListViewContriller.swift */; };
+		5EED8ADE2825283C0075794D /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED8ADD2825283C0075794D /* NewsListViewController.swift */; };
 		5EED8AE12825283C0075794D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EED8ADF2825283C0075794D /* Main.storyboard */; };
 		5EED8AE32825283D0075794D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EED8AE22825283D0075794D /* Assets.xcassets */; };
 		5EED8AE62825283D0075794D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EED8AE42825283D0075794D /* LaunchScreen.storyboard */; };
@@ -69,12 +69,12 @@
 		5ED7BF0F28287C01002AF61E /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		5ED7BF13282A8615002AF61E /* NEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NEmptyStateView.swift; sourceTree = "<group>"; };
 		5ED7BF1B282AF5A0002AF61E /* NewsBookmarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBookmarksCell.swift; sourceTree = "<group>"; };
-		5ED7BF21282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBookmarcsCollectionVC.swift; sourceTree = "<group>"; };
+		5ED7BF21282AF73A002AF61E /* NewsBookmarksCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBookmarksCollectionVC.swift; sourceTree = "<group>"; };
 		5ED7BF23282B0C29002AF61E /* NShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NShadowView.swift; sourceTree = "<group>"; };
 		5EED8AD62825283C0075794D /* AppNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EED8AD92825283C0075794D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EED8ADB2825283C0075794D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5EED8ADD2825283C0075794D /* NewsListViewContriller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewContriller.swift; sourceTree = "<group>"; };
+		5EED8ADD2825283C0075794D /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
 		5EED8AE02825283C0075794D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EED8AE22825283D0075794D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EED8AE52825283D0075794D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -132,6 +132,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E957B58283E4C7700EA9391 /* CustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5ED7BF0D28287628002AF61E /* ResizebleLayout.swift */,
+			);
+			path = CustomLayout;
+			sourceTree = "<group>";
+		};
 		5EED8ACD2825283C0075794D = {
 			isa = PBXGroup;
 			children = (
@@ -335,9 +343,9 @@
 		5EED8B35282572520075794D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5E957B58283E4C7700EA9391 /* CustomLayout */,
 				5EED8B36282572790075794D /* NewsListCell.swift */,
 				5EED8B442828681D0075794D /* BookmarksCell.swift */,
-				5ED7BF0D28287628002AF61E /* ResizebleLayout.swift */,
 				5ED7BF1B282AF5A0002AF61E /* NewsBookmarksCell.swift */,
 				5EB7AB00282D3DFE00D01476 /* SwipeableCollectionViewCell.swift */,
 			);
@@ -347,10 +355,10 @@
 		5EED8B3B282689C10075794D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				5EED8ADD2825283C0075794D /* NewsListViewContriller.swift */,
+				5EED8ADD2825283C0075794D /* NewsListViewController.swift */,
 				5EED8B3E2827FAB30075794D /* ArticleInfoVC.swift */,
 				5EED8B1928253E680075794D /* NBookmarksViewController.swift */,
-				5ED7BF21282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift */,
+				5ED7BF21282AF73A002AF61E /* NewsBookmarksCollectionVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -487,9 +495,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ED7BF14282A8615002AF61E /* NEmptyStateView.swift in Sources */,
-				5EED8ADE2825283C0075794D /* NewsListViewContriller.swift in Sources */,
+				5EED8ADE2825283C0075794D /* NewsListViewController.swift in Sources */,
 				5EED8B3428256B720075794D /* Constants.swift in Sources */,
-				5ED7BF22282AF73A002AF61E /* NewsBookmarcsCollectionVC.swift in Sources */,
+				5ED7BF22282AF73A002AF61E /* NewsBookmarksCollectionVC.swift in Sources */,
 				5EED8ADA2825283C0075794D /* AppDelegate.swift in Sources */,
 				5EED8B2628255FBF0075794D /* NAlertConteinerView.swift in Sources */,
 				5ED7BF0E28287628002AF61E /* ResizebleLayout.swift in Sources */,

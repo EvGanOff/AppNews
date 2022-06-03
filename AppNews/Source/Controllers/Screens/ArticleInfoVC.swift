@@ -60,16 +60,15 @@ class ArticleInfoVC: NLoadingDataViewConroller {
     @objc private func addButtonTapped() {
         showLoadingView()
 
-        networkDelegate?.getArticleInfo { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-
-            switch result {
-            case .success(let bookmark):
-                self.addArticleToBookmarks(bookmark: bookmark)
-
-            case .failure(let error):
-                self.presentsNAlertControllerOnMainTread(title: "Что-то пошло не так", massage: error.rawValue, buttonTitle: "Ок")
+        Task {
+            do {
+                let articles = try await networkDelegate?.getArticleInfo(completed: article?.url ?? "")
+                self.addArticleToBookmarks(bookmark: articles ?? [])
+                dismissLoadingView()
+            } catch {
+                if let nError = error as? NErrors {
+                    self.presentsNAlertController(title: "Что-то пошло не так", massage: nError.rawValue, buttonTitle: "Ок")
+                }
             }
         }
     }
@@ -83,21 +82,18 @@ class ArticleInfoVC: NLoadingDataViewConroller {
             guard let self = self else { return }
 
             guard let error = error else {
-                self.presentsNAlertControllerOnMainTread(title: "Добавлено", massage: "Вы добавили эту новость в закладки.", buttonTitle: "Ок")
+                self.presentsNAlertController(title: "Добавлено", massage: "Вы добавили эту новость в закладки.", buttonTitle: "Ок")
                 return
             }
-            self.presentsNAlertControllerOnMainTread(title: "Упс!", massage: error.rawValue, buttonTitle: "Ок")
+            self.presentsNAlertController(title: "Упс!", massage: error.rawValue, buttonTitle: "Ок")
         }
     }
 
     private func configureUI() {
         guard let article = article else { return }
-        networkDelegate?.downloadImage(from: article.urlToImage ?? Images.placeholderUrlImage, completion: { [weak self] images in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.imageView.image = images
-            }
-        })
+        Task {
+            imageView.image = try await networkDelegate?.downloadImage(from: article.urlToImage ?? Images.placeholderUrlImage)
+        }
 
         titleLabel.text = article.title
         descriptionLabel.text = article.description ?? Descriptions.articleDescription

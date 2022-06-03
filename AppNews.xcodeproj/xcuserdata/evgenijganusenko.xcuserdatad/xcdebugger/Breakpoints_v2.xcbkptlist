@@ -7,17 +7,208 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DF4993A3-1F07-42F7-829E-4D51CD4DBCB4"
+            uuid = "04E6989A-3544-46E8-855D-DC47BEA6EC11"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppNews/Source/Controllers/Screens/NewsBookmarksCollectionVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CA12EE0E-1B77-4F27-A62E-262A8F7A091B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppNews/Source/Controllers/Screens/NewsBookmarksCollectionVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3D060E8-823F-4F4A-A10E-6385A7BA7E7A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppNews/Source/Controllers/Screens/NewsListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getArticles(page:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "89FC9185-2644-46F3-8AF9-DDE5785241F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppNews/Source/CustomViews/Cell/SwipeableCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "SwipeableCollectionViewCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DB52E48-F3CA-445A-B17E-7C7BE1E8173F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AppNews/Source/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "getNews(page:completion:)"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "downloadImage(from:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8A10A1C-379C-45AF-B649-9400D1B8EC33"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppNews/Source/CustomViews/Cell/NewsBookmarksCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "set(bookmark:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F8A10A1C-379C-45AF-B649-9400D1B8EC33 - 9e0becf5847e8a17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in AppNews.NewsBookmarksCell.set(bookmark: AppNews.Article) -&gt; ()"
+                  moduleName = "AppNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evgenijganusenko/Desktop/SwiftProjects/AppNews/AppNews/Source/CustomViews/Cell/NewsBookmarksCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "F8A10A1C-379C-45AF-B649-9400D1B8EC33 - 84894b64a2c75615"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in AppNews.NewsBookmarksCell.set(bookmark: AppNews.Article) -&gt; ()"
+                  moduleName = "AppNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evgenijganusenko/Desktop/SwiftProjects/AppNews/AppNews/Source/CustomViews/Cell/NewsBookmarksCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "F8A10A1C-379C-45AF-B649-9400D1B8EC33 - b1c9faacdde8f414"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in AppNews.NewsBookmarksCell.set(bookmark: AppNews.Article) -&gt; ()"
+                  moduleName = "AppNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evgenijganusenko/Desktop/SwiftProjects/AppNews/AppNews/Source/CustomViews/Cell/NewsBookmarksCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DF32B3C-B18B-4A3E-910A-52CAEBD78263"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppNews/Source/CustomViews/Cell/NewsBookmarksCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "set(bookmark:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C020C594-DB1D-47DF-8A84-B07A19542D47"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppNews/Source/CustomViews/Cell/NewsBookmarksCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "set(bookmark:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C020C594-DB1D-47DF-8A84-B07A19542D47 - 9e0becf5847e8a74"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in AppNews.NewsBookmarksCell.set(bookmark: AppNews.Article) -&gt; ()"
+                  moduleName = "AppNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evgenijganusenko/Desktop/SwiftProjects/AppNews/AppNews/Source/CustomViews/Cell/NewsBookmarksCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "C020C594-DB1D-47DF-8A84-B07A19542D47 - 84894b64a2c75676"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in AppNews.NewsBookmarksCell.set(bookmark: AppNews.Article) -&gt; ()"
+                  moduleName = "AppNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evgenijganusenko/Desktop/SwiftProjects/AppNews/AppNews/Source/CustomViews/Cell/NewsBookmarksCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "184">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

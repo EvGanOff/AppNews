@@ -16,7 +16,7 @@ class NTabBarController: UITabBarController {
     }
 
     func createNewsListNC() -> UINavigationController {
-        let newsListNavigationController = NewsListViewContriller()
+        let newsListNavigationController = NewsListViewController()
         newsListNavigationController.title = "Новости"
         newsListNavigationController.tabBarItem = UITabBarItem(title: "Новости", image: UIImage(systemName: "magazine"), tag: 0)
 
@@ -24,7 +24,7 @@ class NTabBarController: UITabBarController {
     }
 
     func createBookmarcsNC() -> UINavigationController {
-        let bookmarksNavigationController = NewsBookmarcsCollectionVC()
+        let bookmarksNavigationController = NewsBookmarksCollectionVC()
         bookmarksNavigationController.title = "Закладки"
         bookmarksNavigationController.tabBarItem = UITabBarItem(title: "Закладки", image: UIImage(systemName: "bookmark"), tag: 1)
 

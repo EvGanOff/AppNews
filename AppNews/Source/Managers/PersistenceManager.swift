@@ -66,6 +66,7 @@ enum PersistenceManager {
             let encoder = JSONEncoder()
             let encodedBookmarks = try encoder.encode(bookmarks)
             userDefaults.set(encodedBookmarks, forKey: Keys.bookmarks)
+            
             return nil
         } catch {
             return .unableToBookmarks

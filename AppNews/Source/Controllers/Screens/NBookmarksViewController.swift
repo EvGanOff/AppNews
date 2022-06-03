@@ -53,7 +53,7 @@ class NBookmarksViewController: NLoadingDataViewConroller {
             case .success(let bookmarks):
                 self.updateUI(with: bookmarks)
             case .failure(let error):
-                self.presentsNAlertControllerOnMainTread(title: "Упс", massage: error.rawValue, buttonTitle: "Ок")
+                self.presentsNAlertController(title: "Упс", massage: error.rawValue, buttonTitle: "Ок")
             }
         }
     }
@@ -111,7 +111,7 @@ extension NBookmarksViewController: UITableViewDelegate {
                 tableView.deleteRows(at: [indexPath], with: .left)
                 return
             }
-            self.presentsNAlertControllerOnMainTread(title: "Не можем удалить закладку", massage: error.rawValue, buttonTitle: "Ок")
+            self.presentsNAlertController(title: "Не можем удалить закладку", massage: error.rawValue, buttonTitle: "Ок")
         }
 
         if bookmarks.isEmpty {

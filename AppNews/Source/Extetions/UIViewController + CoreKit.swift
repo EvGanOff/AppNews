@@ -9,13 +9,11 @@ import UIKit
 import SafariServices
 
 extension UIViewController {
-    func presentsNAlertControllerOnMainTread(title: String, massage: String, buttonTitle: String) {
-        DispatchQueue.main.async {
-            let alertVC = NAlertViewController(title: title, massage: massage, buttonTitle: buttonTitle)
-            alertVC.modalPresentationStyle = .overFullScreen
-            alertVC.modalTransitionStyle = .crossDissolve
-            self.present(alertVC, animated: true)
-        }
+    func presentsNAlertController(title: String, massage: String, buttonTitle: String) {
+        let alertVC = NAlertViewController(title: title, massage: massage, buttonTitle: buttonTitle)
+        alertVC.modalPresentationStyle = .overFullScreen
+        alertVC.modalTransitionStyle = .crossDissolve
+        self.present(alertVC, animated: true)
     }
 
     func presenSafariVC(from url: URL) {

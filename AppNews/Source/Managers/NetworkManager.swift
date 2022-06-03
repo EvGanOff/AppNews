@@ -8,116 +8,84 @@
 import UIKit
 
 protocol NetworkManagerProtocol: AnyObject {
-    func getNews(page: Int, completion: @escaping (Result<[Article], NErrors>) -> Void)
-    func getArticleInfo(completed: @escaping (Result<[Article], NErrors>) -> Void)
-    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void)
+//    func getNews(page: Int, completion: @escaping (Result<[Article], NErrors>) -> Void)
+    func getNews(page: Int) async throws -> [Article]
+//    func getArticleInfo(completed: @escaping (Result<[Article], NErrors>) -> Void)
+    func getArticleInfo(completed: String) async throws -> [Article]
+//    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void)
+    func downloadImage(from urlString: String) async throws -> UIImage?
 }
 
 class NetworkManager: NetworkManagerProtocol {
     static let shared = NetworkManager()
+    //weak var networkDelegate: NetworkManagerProtocol?
+    
     var cache = NSCache<NSString, UIImage>()
     private let baseURL = "https://newsapi.org/v2/top-headlines?country=us"
     private let apiKey = "b21393dbff084185b011f3acdc9bd5fb"
     let decoder = JSONDecoder()
 
-    func getNews(page: Int, completion: @escaping (Result<[Article], NErrors>) -> Void) {
+    init () {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+    }
+    /*
+     https://newsapi.org/v2/top-headlines?country=us&page=1&apiKey=b21393dbff084185b011f3acdc9bd5fb
+     */
+
+    func getNews(page: Int) async throws -> [Article] {
         let endpoint = baseURL + "&page=\(page)" + "&apiKey=\(apiKey)"
 
         guard let url = URL(string: endpoint) else {
-            completion(.failure(.unableToComplete))
-            return
+            throw NErrors.unableToComplete
         }
 
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
-                completion(.failure(.unableToComplete))
-                return
-            }
+        let (data, response) = try await URLSession.shared.data(from: url)
 
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(.failure(.invalidResponce))
-                return
-            }
-
-            guard let data = data else {
-                completion(.failure(.invalidData))
-                return
-            }
-
-            do {
-                let result = try self.decoder.decode(News.self, from: data)
-                completion(.success(result.articles))
-            } catch {
-                completion(.failure(.invalidData))
-            }
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw NErrors.invalidResponce
         }
 
-        task.resume()
+        do {
+            return try decoder.decode(News.self, from: data).articles
+        } catch {
+            throw NErrors.invalidData
+        }
     }
 
-    func getArticleInfo(completed: @escaping (Result<[Article], NErrors>) -> Void) {
+    func getArticleInfo(completed: String) async throws -> [Article] {
         let endpoint = baseURL + "&pageSize=100" + "&apiKey=\(apiKey)"
 
-        guard let url = URL(string: endpoint) else {
-            completed(.failure(.unableToComplete))
-            return
+        guard let url = URL(string: endpoint) else { throw NErrors.invalidData }
+
+        let (data, response) = try await URLSession.shared.data(from: url)
+
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw NErrors.invalidResponce }
+
+        do {
+            return try decoder.decode(News.self, from: data).articles
+        } catch {
+            throw NErrors.invalidData
         }
-
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-                return
-            }
-
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.invalidResponce))
-                return
-            }
-
-            guard let data = data else {
-                completed(.failure(.invalidData))
-                return
-            }
-
-            do {
-                let result = try self.decoder.decode(News.self, from: data)
-                completed(.success(result.articles))
-            } catch {
-                completed(.failure(.invalidData))
-            }
-        }
-
-        task.resume()
     }
 
-    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+    func downloadImage(from urlString: String) async throws -> UIImage? {
         let cacheKey = NSString(string: urlString)
 
-        if let image = cache.object(forKey: cacheKey) {
-            completion(image)
-            return
-        }
-        guard let url = URL(string: urlString) else {
-            completion(nil)
-            return
-        }
+        if let image = cache.object(forKey: cacheKey) { return image }
 
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self,
-                  error == nil,
-                  let data = data,
-                  let image = UIImage(data: data),
-                  let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                      completion(nil)
-                      return
-            }
+        guard let url = URL(string: urlString) else { return nil }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let image = UIImage(data: data) else { return nil }
+            cache.setObject(image, forKey: cacheKey)
 
-            self.cache.setObject(image, forKey: cacheKey)
-            completion(image)
+            return image
+        } catch {
+
+            return nil
         }
-
-        task.resume()
     }
 }
 

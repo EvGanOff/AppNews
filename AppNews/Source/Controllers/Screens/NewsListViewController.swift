@@ -1,13 +1,13 @@
 //
-//  NewsListViewContriller.swift
+//  NewsListViewController.swift
 //  AppNews
 //
 //  Created by Евгений Ганусенко on 5/6/22.
 //
 
 import UIKit
-
-class NewsListViewContriller: NLoadingDataViewConroller {
+// написать рефреш контролл
+class NewsListViewController: NLoadingDataViewConroller {
 
     let tableView = UITableView()
     var articles: [Article] = []
@@ -15,11 +15,10 @@ class NewsListViewContriller: NLoadingDataViewConroller {
     var isPaging = false
     var hasMoreArticles = true
     var isRefresh = false
-    let networkDelegate: NetworkManagerProtocol? = NetworkManager()
+    var networkDelegate: NetworkManagerProtocol? = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureViewController()
         configureTableView()
         getArticles(page: page)
@@ -32,6 +31,7 @@ class NewsListViewContriller: NLoadingDataViewConroller {
     }
 
     private func configureTableView() {
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
@@ -43,18 +43,28 @@ class NewsListViewContriller: NLoadingDataViewConroller {
     private func getArticles(page: Int) {
         showLoadingView()
         isPaging = true
-
-        networkDelegate?.getNews(page: page) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            switch result {
-            case .success(let articles):
-                self.updateUI(with: articles)
-            case .failure(let error):
-                self.presentsNAlertControllerOnMainTread(title: "Упс!", massage: error.rawValue, buttonTitle: "ОК")
+        Task {
+            do {
+                let articles = try await networkDelegate?.getNews(page: page)
+                updateUI(with: articles ?? [])
+                dismissLoadingView()
+            } catch {
+                if let nErrors = error as? NErrors {
+                    self.presentsNAlertController(title: "Упс!", massage: nErrors.rawValue, buttonTitle: "ОК")
+                }
             }
-            self.isPaging = false
         }
+//        networkDelegate?.getNews(page: page) { [weak self] result in
+//            guard let self = self else { return }
+//            self.dismissLoadingView()
+//            switch result {
+//            case .success(let articles):
+//                self.updateUI(with: articles)
+//            case .failure(let error):
+//                self.presentsNAlertControllerOnMainTread(title: "Упс!", massage: error.rawValue, buttonTitle: "ОК")
+//            }
+//            self.isPaging = false
+//        }
     }
 
     func updateUI(with articles: [Article]) {
@@ -67,7 +77,7 @@ class NewsListViewContriller: NLoadingDataViewConroller {
     }
 }
 
-extension NewsListViewContriller: UITableViewDelegate {
+extension NewsListViewController: UITableViewDelegate {
     // написать метод постраничной загрузки
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offsetY = scrollView.contentOffset.y
@@ -93,7 +103,7 @@ extension NewsListViewContriller: UITableViewDelegate {
     }
 }
 
-extension NewsListViewContriller: UITableViewDataSource {
+extension NewsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
     }

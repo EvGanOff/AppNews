@@ -14,7 +14,6 @@ class NewsBookmarksCell: SwipeableCollectionViewCell {
     var backgroundImageView = NImageView(frame: .zero)
     var shadowView = NShadowView(frame: .zero)
     var titleLabel = NTitleLabel(textAligment: .center, fontSize: 18)
-    var article: Article?
 
     var networkDelegate: NetworkManagerProtocol? = NetworkManager()
 
@@ -39,10 +38,9 @@ class NewsBookmarksCell: SwipeableCollectionViewCell {
 
 
     func set(bookmark: Article) {
-        // проблема не парсит картинку
         titleLabel.text = bookmark.title
         Task {
-            backgroundImageView.image = try await networkDelegate?.downloadImage(from: bookmark.urlToImage ?? Images.placeholderUrlImage)?
+            backgroundImageView.image = try await networkDelegate?.downloadImage(from: bookmark.urlToImage ?? "")
         }
     }
 

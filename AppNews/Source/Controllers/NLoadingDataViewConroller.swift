@@ -10,6 +10,10 @@ import UIKit
 class NLoadingDataViewConroller: UIViewController {
     private var containerView: UIView!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
     func showLoadingView() {
         containerView = UIView(frame: view.bounds)
         view.addSubview(containerView)
@@ -42,6 +46,7 @@ class NLoadingDataViewConroller: UIViewController {
     }
 
     func dismissLoadingView() {
+        guard let containerView = containerView else { return }
         DispatchQueue.main.async {
             self.containerView.removeFromSuperview()
             self.containerView = nil

@@ -132,6 +132,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E2C5E59284BA20F00D82717 /* OldCell */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B442828681D0075794D /* BookmarksCell.swift */,
+			);
+			path = OldCell;
+			sourceTree = "<group>";
+		};
+		5E2C5E5A284BA23100D82717 /* OldBookmaksVC */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8B1928253E680075794D /* NBookmarksViewController.swift */,
+			);
+			path = OldBookmaksVC;
+			sourceTree = "<group>";
+		};
 		5E957B58283E4C7700EA9391 /* CustomLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,9 +361,9 @@
 			children = (
 				5E957B58283E4C7700EA9391 /* CustomLayout */,
 				5EED8B36282572790075794D /* NewsListCell.swift */,
-				5EED8B442828681D0075794D /* BookmarksCell.swift */,
 				5ED7BF1B282AF5A0002AF61E /* NewsBookmarksCell.swift */,
 				5EB7AB00282D3DFE00D01476 /* SwipeableCollectionViewCell.swift */,
+				5E2C5E59284BA20F00D82717 /* OldCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -357,8 +373,8 @@
 			children = (
 				5EED8ADD2825283C0075794D /* NewsListViewController.swift */,
 				5EED8B3E2827FAB30075794D /* ArticleInfoVC.swift */,
-				5EED8B1928253E680075794D /* NBookmarksViewController.swift */,
 				5ED7BF21282AF73A002AF61E /* NewsBookmarksCollectionVC.swift */,
+				5E2C5E5A284BA23100D82717 /* OldBookmaksVC */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

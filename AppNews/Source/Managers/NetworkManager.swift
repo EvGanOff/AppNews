@@ -29,6 +29,7 @@ class NetworkManager: NetworkManagerProtocol {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dateDecodingStrategy = .iso8601
     }
+
     /*
      https://newsapi.org/v2/top-headlines?country=us&page=1&apiKey=b21393dbff084185b011f3acdc9bd5fb
      */

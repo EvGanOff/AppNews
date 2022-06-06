@@ -9,6 +9,7 @@ import UIKit
 
 enum Images {
     static let placeholderImage = UIImage(named: "placeholder-image")
+    static let secondPlaceholderImage = "https://i.ibb.co/WpbL6Jt/app-News.jpg"
     static let placeholderUrlImage = "https://office-roxx.de/wp-content/uploads/2015/11/Bild_News_Fotolia_71635944_M_mediterranean_fotolia.de_.jpg"
 }
 

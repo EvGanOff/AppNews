@@ -20,7 +20,7 @@ enum PersistenceManager {
         static let bookmarks = "bookmarks"
     }
 
-    static func updateWith(bookmark: Article, actionType: PersistenceActionType, completed: @escaping (NErrors?) -> Void) {
+    static func updateWith(bookmark: Bookmark, actionType: PersistenceActionType, completed: @escaping (NErrors?) -> Void) {
         retrieveBookmarks { result in
 
             switch result {
@@ -46,7 +46,7 @@ enum PersistenceManager {
         }
     }
 
-    static func retrieveBookmarks(completed: @escaping (Result<[Article], NErrors>) -> Void) {
+    static func retrieveBookmarks(completed: @escaping (Result<[Bookmark], NErrors>) -> Void) {
         guard let bookmarksData = userDefaults.object(forKey: Keys.bookmarks) as? Data else {
             completed(.success([]))
             return
@@ -54,14 +54,14 @@ enum PersistenceManager {
 
         do {
             let decoder = JSONDecoder()
-            let user = try decoder.decode([Article].self, from: bookmarksData)
+            let user = try decoder.decode([Bookmark].self, from: bookmarksData)
             completed(.success(user))
         } catch {
             completed(.failure(.unableToBookmarks))
         }
     }
 
-    static func save(bookmarks: [Article]) -> NErrors? {
+    static func save(bookmarks: [Bookmark]) -> NErrors? {
         do {
             let encoder = JSONEncoder()
             let encodedBookmarks = try encoder.encode(bookmarks)

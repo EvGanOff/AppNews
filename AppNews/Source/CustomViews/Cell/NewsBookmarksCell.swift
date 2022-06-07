@@ -37,7 +37,7 @@ class NewsBookmarksCell: SwipeableCollectionViewCell {
 
 
 
-    func set(bookmark: Article) {
+    func set(bookmark: Bookmark) {
         titleLabel.text = bookmark.title
         Task {
             backgroundImageView.image = try await networkDelegate?.downloadImage(from: bookmark.urlToImage ?? Images.secondPlaceholderImage)
@@ -50,8 +50,8 @@ class NewsBookmarksCell: SwipeableCollectionViewCell {
 
         let delta = 1 - (UIHelper.featuredHeight - frame.height) / dragOffset
 
-        let maxAlpha: CGFloat = 0.7
-        let minAlpha: CGFloat = 0.1
+        let maxAlpha: CGFloat = 0.9
+        let minAlpha: CGFloat = 0.4
 
         let scale = max(delta, 0.5)
 
@@ -82,7 +82,7 @@ class NewsBookmarksCell: SwipeableCollectionViewCell {
         configureContainers()
         configureUIElements()
 
-        let padding: CGFloat = 32
+        let padding: CGFloat = 8
 
         NSLayoutConstraint.activate([
             deleteImageView.centerXAnchor.constraint(equalTo: hiddenContainerView.centerXAnchor),

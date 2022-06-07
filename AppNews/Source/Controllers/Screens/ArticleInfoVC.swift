@@ -21,6 +21,7 @@ class ArticleInfoVC: NLoadingDataViewConroller {
     let dateLabel = NBodyLabel(textAligment: .left)
     let actionButton = NButton(backgraundColor: .systemPink, title: "Источник")
     var article: Article?
+
     let networkDelegate: NetworkManagerProtocol? = NetworkManager()
 
     init(article: Article) {
@@ -76,7 +77,7 @@ class ArticleInfoVC: NLoadingDataViewConroller {
     private func addArticleToBookmarks(bookmark: [Article]) {
         guard let article = article else { return }
 
-        let bookmark = Article(title: article.title, url: article.url)
+        let bookmark = Bookmark(title: article.title, urlToImage: article.urlToImage)
 
         PersistenceManager.updateWith(bookmark: bookmark, actionType: .add) { [weak self] error in
             guard let self = self else { return }

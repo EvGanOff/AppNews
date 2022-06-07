@@ -13,9 +13,9 @@ class NewsBookmarksCollectionVC: NLoadingDataViewConroller {
         case main
     }
 
-    var bookmarks: [Article] = []
+    var bookmarks: [Bookmark] = []
     var collectionView: UICollectionView!
-    var collectionDataSource: UICollectionViewDiffableDataSource<Section, Article>!
+    var collectionDataSource: UICollectionViewDiffableDataSource<Section, Bookmark>!
 
     weak var swiipeCollectionDelegate: SwipeableCollectionViewCellDelegate?
 
@@ -66,7 +66,7 @@ class NewsBookmarksCollectionVC: NLoadingDataViewConroller {
         }
     }
 
-    private func updateUI(with bookmarks: [Article]) {
+    private func updateUI(with bookmarks: [Bookmark]) {
         if bookmarks.isEmpty {
             self.showEmptyStateView(with: "Упс", in: self.view)
         } else {
@@ -91,7 +91,7 @@ extension NewsBookmarksCollectionVC: UICollectionViewDataSource {
     }
 
     private func updateData() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Article>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Bookmark>()
         snapshot.appendSections([.main])
         snapshot.appendItems(bookmarks)
         DispatchQueue.main.async {

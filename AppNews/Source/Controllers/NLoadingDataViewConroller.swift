@@ -46,7 +46,7 @@ class NLoadingDataViewConroller: UIViewController {
     }
 
     func dismissLoadingView() {
-        guard let containerView = containerView else { return }
+        guard containerView != nil else { return }
         DispatchQueue.main.async {
             self.containerView.removeFromSuperview()
             self.containerView = nil

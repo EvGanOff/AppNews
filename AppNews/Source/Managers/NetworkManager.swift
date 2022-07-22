@@ -18,8 +18,8 @@ protocol NetworkManagerProtocol: AnyObject {
 
 class NetworkManager: NetworkManagerProtocol {
     static let shared = NetworkManager()
-    //weak var networkDelegate: NetworkManagerProtocol?
-    
+    weak var networkDelegate: NetworkManagerProtocol?
+
     var cache = NSCache<NSString, UIImage>()
     private let baseURL = "https://newsapi.org/v2/top-headlines?country=us"
     private let apiKey = "b21393dbff084185b011f3acdc9bd5fb"

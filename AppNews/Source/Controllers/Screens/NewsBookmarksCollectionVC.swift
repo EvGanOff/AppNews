@@ -80,7 +80,7 @@ class NewsBookmarksCollectionVC: NLoadingDataViewConroller {
 }
 
 extension NewsBookmarksCollectionVC: UICollectionViewDelegate {
-
+// реализовать переход на Safari
 
 }
 

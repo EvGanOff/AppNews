@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E514E4C2853933A00C1D17F /* ExtentionNewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E514E4B2853933A00C1D17F /* ExtentionNewsListViewController.swift */; };
 		5EB7AB01282D3DFE00D01476 /* SwipeableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7AB00282D3DFE00D01476 /* SwipeableCollectionViewCell.swift */; };
 		5EC86C482850072D00F79BCE /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC86C472850072D00F79BCE /* Bookmark.swift */; };
 		5ED7BF0E28287628002AF61E /* ResizebleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7BF0D28287628002AF61E /* ResizebleLayout.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E514E4B2853933A00C1D17F /* ExtentionNewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionNewsListViewController.swift; sourceTree = "<group>"; };
 		5EB7AB00282D3DFE00D01476 /* SwipeableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EC86C472850072D00F79BCE /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		5ED7BF0D28287628002AF61E /* ResizebleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizebleLayout.swift; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 		5EED8AD62825283C0075794D /* AppNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EED8AD92825283C0075794D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EED8ADB2825283C0075794D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5EED8ADD2825283C0075794D /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
+		5EED8ADD2825283C0075794D /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5EED8AE02825283C0075794D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EED8AE22825283D0075794D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EED8AE52825283D0075794D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -146,6 +148,15 @@
 				5EED8B1928253E680075794D /* NBookmarksViewController.swift */,
 			);
 			path = OldBookmaksVC;
+			sourceTree = "<group>";
+		};
+		5E514E4A2853932000C1D17F /* NewsListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5EED8ADD2825283C0075794D /* NewsListViewController.swift */,
+				5E514E4B2853933A00C1D17F /* ExtentionNewsListViewController.swift */,
+			);
+			path = NewsListViewController;
 			sourceTree = "<group>";
 		};
 		5E957B58283E4C7700EA9391 /* CustomLayout */ = {
@@ -371,7 +382,7 @@
 		5EED8B3B282689C10075794D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				5EED8ADD2825283C0075794D /* NewsListViewController.swift */,
+				5E514E4A2853932000C1D17F /* NewsListViewController */,
 				5EED8B3E2827FAB30075794D /* ArticleInfoVC.swift */,
 				5ED7BF21282AF73A002AF61E /* NewsBookmarksCollectionVC.swift */,
 				5E2C5E5A284BA23100D82717 /* OldBookmaksVC */,
@@ -532,6 +543,7 @@
 				5EED8B1C282544920075794D /* NetworkManager.swift in Sources */,
 				5EED8B12282539B70075794D /* NBodyLabel.swift in Sources */,
 				5EED8B412827FC8D0075794D /* UIView + CoreKit.swift in Sources */,
+				5E514E4C2853933A00C1D17F /* ExtentionNewsListViewController.swift in Sources */,
 				5EED8B3D282689F10075794D /* NLoadingDataViewConroller.swift in Sources */,
 				5EED8B2E2825635B0075794D /* NButton.swift in Sources */,
 				5EED8B1728253CA80075794D /* NTabBarController.swift in Sources */,

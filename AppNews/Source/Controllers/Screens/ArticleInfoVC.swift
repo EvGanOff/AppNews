@@ -22,7 +22,7 @@ class ArticleInfoVC: NLoadingDataViewConroller {
     let actionButton = NButton(backgraundColor: .systemPink, title: "Источник")
     var article: Article?
 
-    let networkDelegate: NetworkManagerProtocol? = NetworkManager()
+    var networker: NetworkManagerProtocol? = NetworkManager()
 
     init(article: Article) {
         super.init(nibName: nil, bundle: nil)
@@ -63,7 +63,7 @@ class ArticleInfoVC: NLoadingDataViewConroller {
 
         Task {
             do {
-                let articles = try await networkDelegate?.getArticleInfo(completed: article?.url ?? "")
+                let articles = try await networker?.getArticleInfo(completed: article?.url ?? "")
                 self.addArticleToBookmarks(bookmark: articles ?? [])
                 dismissLoadingView()
             } catch {
@@ -92,8 +92,9 @@ class ArticleInfoVC: NLoadingDataViewConroller {
 
     private func configureUI() {
         guard let article = article else { return }
+
         Task {
-            imageView.image = try await networkDelegate?.downloadImage(from: article.urlToImage ?? Images.placeholderUrlImage)
+            imageView.image = try await networker?.downloadImage(from: article.urlToImage ?? Images.placeholderUrlImage)
         }
 
         titleLabel.text = article.title
